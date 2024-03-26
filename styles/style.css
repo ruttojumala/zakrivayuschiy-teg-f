@@ -27,44 +27,105 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
+  padding: 100px 0;
 }
 
 .section-width {
   width: var(--section-width);
+  background-color: var(--br-color);
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--main-color);
 }
+
+/*Шапка*/
 
 .header {
   font-family: var(--font-accent), monospace, sans-serif;
-  background-color: var(--br-color);
   text-transform: uppercase;
-  margin: 100px 0 50px;
+  align-items: center;
+  margin: 0 auto 100px;
   padding: 0 0 25px;
 }
 
 .header__title {
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   width: max-content;
-  margin: 120px auto 0;
+  margin: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem) auto 20px;
 }
 
 .header__subtitle {
-  margin: 20px auto 0;
+  margin: 0 auto 25px;
   width: min-content;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   line-height: 14px;
 }
 
 .theme-menu__list {
-  margin: 25px auto 0;
-  width: min-content;
+  margin: 0 auto 0;
+  width: max-content;
   display: flex;
   flex-direction: column;
+  text-align: left;
+  font-size: 14px;
   gap: 8px;
+}
+/*Кнопки*/
+.button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .theme-menu__button {
   text-transform: uppercase;
-  background: transparent;
-  border: none;
-  line-height: 14px;
 }
+
+.theme-menu__button:disabled {
+  position: relative;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  animation-name: play;
+  animation-iteration-count: infinite;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  inset-inline-start: -20px;
+}
+
+.theme-menu__button:hover {
+  opacity: 60%;
+}
+
+.theme-menu__button:active {
+  opacity: 60%;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+}
+
+.theme-menu__button:focus-visible {
+  opacity: 60%;
+  outline: none;
+  transition: opacity 0.5s;
+}
+
+.theme-menu__button::after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 2px;
+  margin-top: -2px;
+  background-color: var(--main-color);
+  transition: width 0.5s;
+}
+
+.theme-menu__button:focus-visible::after {
+  width: 100%;
+}
+
+/*Карточки*/
+
