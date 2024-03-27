@@ -6,8 +6,19 @@
   --font-weight-text: 400;
   --br-color: #FFFFFF;
   --main-color: #000000;
+  --mix-color: #FFFFFF;
   --br-gradient: repeating-linear-gradient(to right, #d3d3d3 0 2px, transparent 2px 4px),
   repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
   repeating-linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
   --section-width: 100vw;
+  --contour-color: #000;
+  --sparks-color: #FF0000;
+  /*--core-color: #ffffff;
+  --main-body-color: #FF0000;*/
+}
+
+@media (width >= 1024px) {
+  :root {
+    --section-width: 700px;
+  }
 }

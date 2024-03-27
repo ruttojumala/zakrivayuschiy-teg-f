@@ -18,6 +18,24 @@
     transform: translate(0px);
   }
   100% {
-    transform: translate(2px);
+    transform: translate(4px);
+  }
+}
+
+@keyframes heart {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 1.5;
+  }
+}
+
+@keyframes sparks {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

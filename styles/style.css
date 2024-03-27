@@ -32,10 +32,12 @@
 
 .section-width {
   width: var(--section-width);
+  max-width: 700px;
   background-color: var(--br-color);
   display: flex;
   flex-direction: column;
   border: 2px solid var(--main-color);
+  margin: 0 auto;
 }
 
 /*Шапка*/
@@ -44,7 +46,7 @@
   font-family: var(--font-accent), monospace, sans-serif;
   text-transform: uppercase;
   align-items: center;
-  margin: 0 auto 100px;
+  margin-bottom: 100px;
   padding: 0 0 25px;
 }
 
@@ -75,6 +77,7 @@
   background: transparent;
   border: none;
   cursor: pointer;
+  position: relative;
 }
 
 .theme-menu__button {
@@ -83,6 +86,7 @@
 
 .theme-menu__button:disabled {
   position: relative;
+  pointer-events: none;
 }
 
 .theme-menu__button:disabled::before {
@@ -97,6 +101,7 @@
 
 .theme-menu__button:hover {
   opacity: 60%;
+  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button:active {
@@ -105,12 +110,13 @@
 
 .theme-menu__button:focus {
   outline: none;
+  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button:focus-visible {
   opacity: 60%;
   outline: none;
-  transition: opacity 0.5s;
+  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button::after {
@@ -120,7 +126,7 @@
   height: 2px;
   margin-top: -2px;
   background-color: var(--main-color);
-  transition: width 0.5s;
+  transition: width 0.3s ease;
 }
 
 .theme-menu__button:focus-visible::after {
@@ -129,3 +135,294 @@
 
 /*Карточки*/
 
+.card__title {
+  padding: 3.5px 10px;
+  font-weight: var(--font-weight-title);
+  line-height: 21.78px;
+  font-size: 18px;
+}
+
+.card__image-container {
+  position: relative;
+  max-width: 100%;
+  border-top: 2px solid var(--main-color);
+  border-bottom: 2px solid var(--main-color);
+}
+
+.card__image-label {
+  position: absolute;
+  top: 25px;
+  right: 13px;
+  opacity: 50%;
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: 14px;
+  text-shadow: 
+    -2px 0 var(--br-color), 
+    0 2px  var(--br-color), 
+    2px 0 var(--br-color), 
+    0 -2px  var(--br-color);
+  mix-blend-mode: hard-light;
+}
+
+@supports((-webkit-text-stroke: 1px var(--br-color)) or (text-stroke: 1px var(--br-color);)) {
+  .card__label {
+      text-shadow: none;
+      text-stroke: 1px var(--br-color);
+      -webkit-text-stroke: 1px var(--br-color);
+  }
+} 
+
+.card__image {
+  display: block;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+.card__text-container {
+  padding: 25px;
+}
+
+.card__text-container p:not(:last-of-type) {
+  margin-bottom: 27px;
+}
+
+.card__text-container button {
+  margin-top: 25px;
+}
+
+.card__text {
+  font-weight: var(--font-weight-text);
+  line-height: 21px;
+  font-size: 18px;
+}
+
+/*Кпопы лайк и не только*/
+
+.button__container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 5px;
+}
+
+.button__text {
+  position: relative;
+  font-family: var(--font-accent), monospace, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 12.6px;
+  color: var(--mix-color);
+  mix-blend-mode: difference;
+}
+
+.card__like-button {
+  border: 2px solid var(--main-color);
+  padding: 10px 35px;
+  transition: box-shadow 0.3s ease;
+  width: 130px;
+  display: flex;
+  justify-content: center;
+}
+
+.card__like-button:focus-visible, .footer__button:focus-visible {
+  outline: none;
+  box-shadow: 2px 2px var(--main-color);
+}
+
+.card__like-button::before, .footer__button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--main-color);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.card__like-button:hover::before, .footer__button:hover::before {
+  transform: scaleX(1);
+}
+
+/*Кнопка сердце*/
+.card__icon-button {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  outline: 2px solid transparent;
+  transition: outline-color 0.3s ease;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: none;
+  outline: 2px solid var(--main-color);
+}
+
+/*Подвал*/
+
+.footer__button {
+  padding: 15px 20px;
+  margin: 0 auto;
+  border: 2px solid var(--main-color);
+  background-color: var(--br-color);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.floppy {
+  color: var(--mix-color);
+  width: 28px;
+  height: 28px;
+  mix-blend-mode: difference;
+}
+
+/* Сердце */
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon .core {
+  fill: transparent;
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon .main-body {
+  fill: transparent;
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .core {
+  fill: var(--contour-color);
+}
+
+.like-icon:hover .main-body {
+  fill: var(--contour-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon:active .core {
+  fill: var(--sparks-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--sparks-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--sparks-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--sparks-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--sparks-color);
+  transition: fill 0.3s 0.06s linear;
+}
+
+.like-icon.is-liked .heart {
+  transform-origin: center;
+  animation: heart 0.3s 0.1s ease-in 1 alternate;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s 0.3s ease-in 1 alternate;
+}
+
+.like-icon .contour {
+  fill: var(--contour-color);
+  transition: fill 0.1s linear;
+}
+/* Диалог */
+
+.dialog {
+  padding: 32px 42px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: fixed;
+  inset: 0;
+  min-width: 341px;
+  border: 2px solid var(--main-color);
+  background-color: var(--br-color);
+}
+
+.dialog:not([open]) {
+  pointer-events: none;
+  opacity: 0;
+} 
+
+.dialog__container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog__text {
+  font-family: var(--font-accent), monospace, sans-serif;
+  line-height: 21px;
+  font-size: 14px;
+  font-weight: 400px;
+  max-width: 198px;
+  color: var(--main-color);
+}
+
+.dialog__button {
+  border: 2px solid var(--main-color);
+  text-transform: uppercase;
+  transition: box-shadow 0.3s ease;
+}
+
+.dialog__button:focus-visible {
+  outline: none;
+  box-shadow: 2px 2px var(--main-color);
+}
+
+.dialog .floppy { 
+  width: 39px;
+  height: 39px;
+  mix-blend-mode: normal;
+  color: var(--main-color);
+}
+
+.dialog .button__text {
+  mix-blend-mode: normal;
+  color: var(--main-color);
+}
+
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+/* Медиазапросы */
+
+@media (width >=1024px) {
+  .card__image-label {
+    right: 25px;
+  }
+
+  .floppy {
+    width: 21px;
+    height: 21px;
+  }
+
+  .footer__button {
+    flex-direction: row;
+  }
+
+  .dialog {
+    max-width: 357px;
+  }
+}
