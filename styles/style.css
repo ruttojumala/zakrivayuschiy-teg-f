@@ -19,7 +19,7 @@
   min-block-size: 100dvb;
   font-variation-settings: "wght" var(--font-weight-text);
   font-family: var(--font-base), monospace, sans-serif;
-  background-color: var(--br-color);
+  background-color: var(--br-gradient);
   color: var(--main-color);
   background-image: var(--br-gradient);
   background-attachment: fixed;
@@ -387,7 +387,7 @@
   font-family: var(--font-accent), monospace, sans-serif;
   line-height: 21px;
   font-size: 14px;
-  font-weight: 400px;
+  font-weight: 400;
   max-width: 198px;
   color: var(--main-color);
 }
@@ -397,6 +397,7 @@
   text-transform: uppercase;
   transition: box-shadow 0.3s ease;
   width: 100%;
+  height: 38px;
 }
 
 .dialog__button:focus-visible {
