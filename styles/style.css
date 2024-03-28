@@ -17,7 +17,7 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-variation-settings: var(--font-weight-text);
+  font-variation-settings: "wght" var(--font-weight-text);
   font-family: var(--font-base), monospace, sans-serif;
   background-color: var(--br-color);
   color: var(--main-color);
@@ -155,6 +155,7 @@
   max-width: 100%;
   border-top: 2px solid var(--main-color);
   border-bottom: 2px solid var(--main-color);
+  z-index: 0;
 }
 
 .card__image-label {
@@ -166,17 +167,17 @@
   font-weight: 400;
   font-size: 14px;
   text-shadow: 
-    -2px 0 var(--br-color), 
-    0 2px  var(--br-color), 
-    2px 0 var(--br-color), 
-    0 -2px  var(--br-color);
+    -1px 0 var(--br-color), 
+    0 1px  var(--br-color), 
+    1px 0 var(--br-color), 
+    0 -1px  var(--br-color);
   mix-blend-mode: hard-light;
+  z-index: 1;
 }
 
-@supports((-webkit-text-stroke: 1px var(--br-color)) or (text-stroke: 1px var(--br-color);)) {
+@supports((-webkit-text-stroke: 1px var(--br-color)) or (text-stroke: 1px var(--br-color))) {
   .card__image-label {
       text-shadow: none;
-      text-stroke: 1px var(--br-color);
       -webkit-text-stroke: 1px var(--br-color);
   }
 } 
@@ -402,11 +403,45 @@
   box-shadow: 2px 2px var(--main-color);
 }
 
-.dialog .floppy { 
+.dialog .floppy {
   width: 39px;
   height: 39px;
   mix-blend-mode: normal;
   color: var(--main-color);
+}
+
+/* Фильтры */
+
+.opacity {
+  filter: opacity(0.8);
+}
+
+.blur {
+  filter: blur(0.01rem);
+}
+
+.grayscale {
+  filter: grayscale(0.5);
+}
+
+.brightness {
+  filter: brightness(120%);
+}
+
+.contrast {
+  filter: contrast(120%)
+}
+
+.saturate {
+  filter: saturate(158%);
+}
+
+.sepia {
+  filter: sepia(0.4);
+}
+
+.multy {
+  filter: brightness(110%) saturate(120%) hue-rotate(20deg);
 }
 
 /* Медиазапросы */
