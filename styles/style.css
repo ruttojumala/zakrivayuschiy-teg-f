@@ -91,6 +91,7 @@
 .theme-menu__button:disabled {
   position: relative;
   pointer-events: none;
+  opacity: 60%;
 }
 
 .theme-menu__button:disabled::before {
