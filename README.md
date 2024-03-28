@@ -1,1 +1,1 @@
-git@github.com:ruttojumala/zakrivayuschiy-teg-f.git
+https://github.com/ruttojumala/zakrivayuschiy-teg-f.git
